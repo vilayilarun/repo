@@ -3,9 +3,9 @@
 # Recipe:: default
 #
 # Copyright:: 2017, The Authors, All Rights Reserved.
-if node ['hostname'] == "rhel"
-	package = "http"
-elsif node ['hostname'] == "debian"
+if node['platform_family'] == "rhel"
+	package = "httpd"
+elsif node['platform_family'] == "debian"
 	package = "apache2"
 end
 package 'apache' do
